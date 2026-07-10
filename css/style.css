@@ -460,6 +460,16 @@ ul, ol { list-style: none; }
   line-height: 1.6;
 }
 
+.trust-bar__link {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--color-accent);
+  margin-top: 6px;
+}
+.trust-bar__link:hover {
+  color: var(--color-accent-dark);
+}
+
 /* --- Features --- */
 .features__grid {
   display: grid;
