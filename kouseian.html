@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>宅建講座LP 構成案・たたき台</title>
+<style>
+  :root {
+    --ink: #1a1f2e;
+    --ink-secondary: #4a5068;
+    --surface: #f7f6f3;
+    --surface-raised: #ffffff;
+    --border: #d8d5cf;
+    --accent: #2563a8;
+    --accent-hover: #1d4f8a;
+    --accent-soft: #e8f0fa;
+    --warm: #c4703e;
+    --warm-soft: #fdf3ec;
+    --success: #2d8a5e;
+    --tag-bg: #edeae5;
+
+    --ff-display: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
+    --ff-body: 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic', sans-serif;
+
+    --fs-xs: 0.75rem;
+    --fs-sm: 0.8125rem;
+    --fs-base: 0.9375rem;
+    --fs-md: 1.0625rem;
+    --fs-lg: 1.25rem;
+    --fs-xl: 1.5rem;
+    --fs-2xl: 1.875rem;
+
+    --space-xs: 0.375rem;
+    --space-sm: 0.75rem;
+    --space-md: 1.25rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4.5rem;
+
+    --radius: 6px;
+    --max-w: 760px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e4e2dd;
+      --ink-secondary: #a09b90;
+      --surface: #181a20;
+      --surface-raised: #22252e;
+      --border: #333640;
+      --accent: #5b9fd6;
+      --accent-hover: #7ab4e2;
+      --accent-soft: #1e2a3a;
+      --warm: #d98f5f;
+      --warm-soft: #2a2118;
+      --tag-bg: #2a2d35;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e4e2dd;
+    --ink-secondary: #a09b90;
+    --surface: #181a20;
+    --surface-raised: #22252e;
+    --border: #333640;
+    --accent: #5b9fd6;
+    --accent-hover: #7ab4e2;
+    --accent-soft: #1e2a3a;
+    --warm: #d98f5f;
+    --warm-soft: #2a2118;
+    --tag-bg: #2a2d35;
+  }
+  :root[data-theme="light"] {
+    --ink: #1a1f2e;
+    --ink-secondary: #4a5068;
+    --surface: #f7f6f3;
+    --surface-raised: #ffffff;
+    --border: #d8d5cf;
+    --accent: #2563a8;
+    --accent-hover: #1d4f8a;
+    --accent-soft: #e8f0fa;
+    --warm: #c4703e;
+    --warm-soft: #fdf3ec;
+    --tag-bg: #edeae5;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: var(--ff-body);
+    font-size: var(--fs-base);
+    line-height: 1.75;
+    color: var(--ink);
+    background: var(--surface);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .doc-header {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+  .doc-header .eyebrow {
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-xs);
+  }
+  .doc-header h1 {
+    font-family: var(--ff-display);
+    font-size: var(--fs-2xl);
+    font-weight: 700;
+    line-height: 1.3;
+    text-wrap: balance;
+    color: var(--ink);
+  }
+  .doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
+    margin-top: var(--space-md);
+    font-size: var(--fs-sm);
+    color: var(--ink-secondary);
+  }
+  .doc-meta dt { font-weight: 600; display: inline; }
+  .doc-meta dt::after { content: '：'; }
+  .doc-meta dd { display: inline; margin: 0; }
+  .doc-meta .pair { white-space: nowrap; }
+
+  .section { margin-bottom: var(--space-2xl); }
+  .section-label {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-xs);
+  }
+  .section h2 {
+    font-family: var(--ff-display);
+    font-size: var(--fs-xl);
+    font-weight: 700;
+    line-height: 1.35;
+    text-wrap: balance;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+  .section h3 {
+    font-size: var(--fs-md);
+    font-weight: 700;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--ink);
+  }
+  .section p, .section li { max-width: 65ch; }
+  .section p + p { margin-top: var(--space-sm); }
+  .section ul, .section ol { padding-left: 1.3em; }
+  .section li { margin-bottom: var(--space-xs); }
+
+  .lp-section {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+  .lp-section .lp-tag {
+    display: inline-block;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    background: var(--tag-bg);
+    color: var(--ink-secondary);
+    padding: 2px 10px;
+    border-radius: 3px;
+    margin-bottom: var(--space-sm);
+  }
+  .lp-section .lp-title {
+    font-family: var(--ff-display);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .lp-section .purpose {
+    font-size: var(--fs-sm);
+    color: var(--ink-secondary);
+    margin-bottom: var(--space-md);
+    font-style: italic;
+    border-left: 3px solid var(--accent-soft);
+    padding-left: var(--space-sm);
+  }
+  .lp-section .elements { font-size: var(--fs-sm); }
+  .lp-section .elements dt {
+    font-weight: 600;
+    color: var(--ink);
+    margin-top: var(--space-sm);
+  }
+  .lp-section .elements dd {
+    margin-left: 0;
+    color: var(--ink-secondary);
+    padding-left: 1em;
+  }
+
+  .highlight {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: var(--space-md) var(--space-lg);
+    margin: var(--space-lg) 0;
+  }
+  .highlight p { font-size: var(--fs-sm); margin: 0; }
+  .highlight strong { color: var(--accent); }
+
+  .note-box {
+    background: var(--warm-soft);
+    border-left: 4px solid var(--warm);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: var(--space-md) var(--space-lg);
+    margin: var(--space-md) 0;
+    font-size: var(--fs-sm);
+  }
+  .note-box strong { color: var(--warm); }
+
+  .copy-example {
+    background: var(--surface-raised);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    margin: var(--space-sm) 0;
+    font-family: var(--ff-display);
+    font-size: var(--fs-lg);
+    line-height: 1.5;
+    text-align: center;
+    color: var(--ink);
+  }
+  .copy-example .sub {
+    display: block;
+    font-family: var(--ff-body);
+    font-size: var(--fs-sm);
+    color: var(--ink-secondary);
+    margin-top: var(--space-xs);
+  }
+
+  .toc {
+    background: var(--surface-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+  .toc h2 {
+    font-family: var(--ff-body);
+    font-size: var(--fs-md);
+    font-weight: 700;
+    border: none;
+    padding: 0;
+    margin-bottom: var(--space-sm);
+  }
+  .toc ol {
+    padding-left: 1.5em;
+    font-size: var(--fs-sm);
+    color: var(--ink-secondary);
+  }
+  .toc li { margin-bottom: 0.3rem; }
+  .toc .note {
+    font-size: var(--fs-xs);
+    color: var(--ink-secondary);
+    margin-top: var(--space-sm);
+  }
+
+  .changed {
+    background: #e6ffe6;
+    border-left: 3px solid var(--success);
+    padding-left: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    font-size: var(--fs-xs);
+    color: var(--success);
+    font-weight: 600;
+  }
+  @media (prefers-color-scheme: dark) {
+    .changed { background: #1a2e1a; }
+  }
+  :root[data-theme="dark"] .changed { background: #1a2e1a; }
+  :root[data-theme="light"] .changed { background: #e6ffe6; }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: var(--space-2xl) 0; }
+
+  .doc-footer {
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-md);
+    font-size: var(--fs-xs);
+    color: var(--ink-secondary);
+    text-align: right;
+  }
+
+  @media (max-width: 600px) {
+    .doc-header h1 { font-size: var(--fs-xl); }
+    .section h2 { font-size: var(--fs-lg); }
+    .lp-section { padding: var(--space-md); }
+    .wrap { padding: var(--space-lg) var(--space-sm); }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="doc-header">
+    <div class="eyebrow">LP構成案</div>
+    <h1>宅建講座 無償提供<br>ランディングページ たたき台</h1>
+    <div class="doc-meta">
+      <div class="pair"><dt>更新日</dt><dd>2026-07-11（v2）</dd></div>
+      <div class="pair"><dt>制作</dt><dd>ビーワークス（青木D / 関口）</dd></div>
+      <div class="pair"><dt>公開目標</dt><dd>8/31</dd></div>
+      <div class="pair"><dt>PRJ</dt><dd>渡辺 / 栗原 / 川端</dd></div>
+    </div>
+  </header>
+
+  <div class="highlight">
+    <p><strong>このLPの位置づけ</strong> ── シリーズB資金調達プレスリリース（9月以降）に合わせ、宅建講座の無料提供を告知するLP。PRからの流入を受け止め、受講申込の窓口として機能させる。ターゲットはPR経由の幅広い読者（不動産業界中心だが限定しない）のうち「今年宅建を受ける予定で、無料なら試してみたい」層。</p>
+  </div>
+
+  <div class="highlight">
+    <p><strong>LPサンプル</strong> ── たたき台を実装済み。<br>
+    <a href="https://yoshihikowatanabe-spec.github.io/takken-lp/" style="color: var(--accent);">https://yoshihikowatanabe-spec.github.io/takken-lp/</a><br>
+    デザイン・レイアウトはビーワークスさんにお任せ。構成・コピー・要素の参考として。</p>
+  </div>
+
+  <nav class="toc">
+    <h2>LP構成（上から順）</h2>
+    <ol>
+      <li>ファーストビュー（ヒーロー＋申込フォーム）</li>
+      <li>受講のメリット</li>
+      <li>講座の特長</li>
+      <li>講座内容一覧</li>
+      <li>講師紹介</li>
+      <li>ご利用の流れ</li>
+      <li>よくある質問</li>
+      <li>申込CTA</li>
+    </ol>
+    <p class="note">※ 以下、各セクションの意図・掲載要素・コピー案を記載。デザイン・ワイヤーはビーワークスさんにお任せ。</p>
+  </nav>
+
+  <section class="section">
+    <div class="section-label">Section 1</div>
+    <h2>ファーストビュー（ヒーロー＋申込フォーム）</h2>
+    <div class="lp-section">
+      <span class="lp-tag">Hero</span>
+      <div class="lp-title">キャッチコピー ＋ 申込フォーム（FV内埋め込み）</div>
+      <div class="purpose">PRからの着地点。3秒で「何が」「誰に」「いくらで」を伝える。フォームをFV内に配置し、スクロールせずに申込可能にする。</div>
+      <dl class="elements">
+        <dt>キャッチコピー（確定）</dt>
+        <dd>
+          <div class="copy-example">
+            宅建 直前対策講座を、<span style="color: var(--accent);">無料</span>で。
+            <span class="sub">人気宅建講師が「得点に直結するポイント」だけに絞った、全5回の直前対策講座＋確認テスト37問。</span>
+          </div>
+        </dd>
+        <dt>フォーム配置</dt>
+        <dd>ヒーロー右側にフォームカードを配置（alueスタイル）。HubSpotフォーム埋め込み（ポータルID: 23163420、formId未定）。項目：お名前・メールアドレス・会社名・利用規約同意チェック。</dd>
+        <dt>バッジ</dt>
+        <dd>「受講料 無料」のラベルをコピー上部に配置</dd>
+        <dt>キービジュアル素材候補</dt>
+        <dd>メインビジュアルの視覚的インパクトは要強化（ビーワークスさんの領域）。中村先生の収録風景 / Swing上の講座画面キャプチャなどが候補。</dd>
+      </dl>
+    </div>
+    <div class="note-box">
+      <strong>検討事項：</strong> 中村先生の写真使用許諾を確認。Schooロゴの掲載可否もSchoo側に要確認。
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Section 2</div>
+    <h2>受講のメリット</h2>
+    <p class="changed">v2変更: v1の「Faciloが提供する理由（恩返し）」セクションを削除し、受講者視点のメリット訴求に変更</p>
+    <div class="lp-section">
+      <span class="lp-tag">Benefits</span>
+      <div class="lp-title">直前期の学習を、最短ルートに</div>
+      <div class="purpose">「この講座を受けると自分にどんなメリットがあるか」を具体的に。PRから来た人が「申し込む理由」を持てるようにする。</div>
+      <dl class="elements">
+        <dt>メリット① 得点力を可視化できる</dt>
+        <dd>確認テスト37問で今の実力を客観的に把握。合格ラインまでの距離がわかるから、直前期の学習計画を立てやすくなる。</dd>
+        <dt>メリット② 弱点を特定し、集中できる</dt>
+        <dd>法改正・建築基準法・ひっかけ問題など、多くの受験生がつまずくポイントをテーマ別に解説。自分の弱点を明確にし、そこだけに時間を使える。</dd>
+        <dt>メリット③ 直前期に最適化された学習体験</dt>
+        <dd>各回30分・全5回。網羅型ではなく「試験直前に何をやるべきか」に絞っているから、限られた時間で得点を最大化できる。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Section 3</div>
+    <h2>講座の特長</h2>
+    <div class="lp-section">
+      <span class="lp-tag">Features</span>
+      <div class="lp-title">3つの特長を並列で訴求</div>
+      <div class="purpose">メリットの次に「なぜこの講座でそれが実現できるのか」の裏付けを提示。</div>
+      <dl class="elements">
+        <dt>特長① 完全無料で受講</dt>
+        <dd>本講座の受講料・テキスト代・登録料はすべて無料。個人でも、企業の事務局からの一括申込でもご利用可能。</dd>
+        <dt>特長② 人気宅建講師の直前対策に特化</dt>
+        <dd>明海大学不動産学部教授・不動産鑑定士の中村喜久夫氏が講義を設計。試験直前に効く「得点力」に絞った全5回の集中講座。</dd>
+        <dt>特長③ いつでもどこでもオンラインで</dt>
+        <dd>PC・スマートフォン対応。通勤中や休憩時間に受講可能。事務局向けには受講状況の管理機能あり。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Section 4</div>
+    <h2>講座内容一覧</h2>
+    <div class="lp-section">
+      <span class="lp-tag">Curriculum</span>
+      <div class="lp-title">全5回の直前対策動画 ＋ 確認テスト</div>
+      <div class="purpose">具体的な講座ラインナップを見せて「この講座なら試験に効く」と確信させる。</div>
+      <dl class="elements">
+        <dt>動画講座（各30分程度）</dt>
+        <dd>
+          <ol>
+            <li>区分所有法の改正はここをマーク（法改正対策）</li>
+            <li>建築基準法が得点できない理由（目から鱗シリーズ）</li>
+            <li>政令使用人のひっかけ（目から鱗シリーズ）</li>
+            <li>国土法と農地法を比べて理解演習（比較理解）</li>
+            <li>捨て問ガイド：法令上の制限（戦略的学習）</li>
+          </ol>
+        </dd>
+        <dt>確認テスト</dt>
+        <dd>全37問。講座内容の理解度を測り、弱点を可視化。</dd>
+      </dl>
+    </div>
+    <div class="note-box">
+      <strong>素材要確認：</strong> 動画のサムネイル画像 or キャプチャがあると説得力が増す。Swing上の講座画面スクリーンショットを栗原さんに依頼。
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Section 5</div>
+    <h2>講師紹介</h2>
+    <div class="lp-section">
+      <span class="lp-tag">Instructor</span>
+      <div class="lp-title">中村 喜久夫（なかむら きくお）</div>
+      <div class="purpose">講師の権威性・信頼性がこのLPの根幹。プロフィールを厚めに掲載。</div>
+      <dl class="elements">
+        <dt>プロフィール</dt>
+        <dd>
+          <ul>
+            <li>明海大学 不動産学部 教授</li>
+            <li>不動産鑑定士</li>
+            <li>元リクルート SUUMO</li>
+          </ul>
+        </dd>
+        <dt>掲載要素</dt>
+        <dd>顔写真（プロフィール用）＋ 受験生へのメッセージ（1〜2文の引用形式）。先生にコメント依頼済み。</dd>
+        <dt>コメント案（先生からいただく想定）</dt>
+        <dd>
+          <div class="copy-example" style="font-size: var(--fs-base);">
+            「直前期に必要なのは、全範囲を復習することではなく、<br>得点につながるポイントを見極めることです。」
+            <span class="sub">※ 先生に実際のコメントを依頼</span>
+          </div>
+        </dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Section 6</div>
+    <h2>ご利用の流れ</h2>
+    <div class="lp-section">
+      <span class="lp-tag">Flow</span>
+      <div class="lp-title">3ステップで受講開始</div>
+      <div class="purpose">「面倒そう」の不安を解消。実際のフローに即した3ステップで表現。</div>
+      <dl class="elements">
+        <dt>Step 1 ── フォームから申込</dt>
+        <dd>お名前・メールアドレス・会社名を入力し、利用規約に同意して送信。</dd>
+        <dt>Step 2 ── 招待メールを受信</dt>
+        <dd>学習環境の設定後、招待メールが届く。メール記載のURLからパスワードを設定。</dd>
+        <dt>Step 3 ── 受講開始</dt>
+        <dd>ログイン後、すぐに動画講座・確認テストをご利用可能。PCでもスマートフォンでもOK。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Section 7</div>
+    <h2>よくある質問</h2>
+    <div class="lp-section">
+      <span class="lp-tag">FAQ</span>
+      <div class="lp-title">想定Q&A（6問）</div>
+      <div class="purpose">申込前の不安をつぶす。アコーディオン形式。</div>
+      <dl class="elements">
+        <dt>Q. 本当に無料ですか？</dt>
+        <dd>A. はい。本講座の受講料・テキスト代・登録料はすべて無料です。</dd>
+        <dt>Q. Faciloを使っていなくても受講できますか？</dt>
+        <dd>A. はい。Faciloの導入有無にかかわらず、どなたでもお申込みいただけます。</dd>
+        <dt>Q. 複数名で申し込みたい場合は？</dt>
+        <dd>A. 企業の事務局様からの一括申込も受け付けています。フォームの備考欄に人数をご記入ください。</dd>
+        <dt>Q. 動画はいつまで視聴できますか？</dt>
+        <dd>A. 2026年度宅建試験（10月）終了後も一定期間ご視聴いただけます。（期限は要確定）</dd>
+        <dt>Q. 宅建の受験予定がなくても受講できますか？</dt>
+        <dd>A. 受験予定の方を主な対象としていますが、知識のブラッシュアップや社内研修目的でもご受講いただけます。</dd>
+        <dt>Q. 申込後、いつから受講できますか？</dt>
+        <dd>A. お申込み後、数営業日以内に招待メールをお送りします。パスワード設定後すぐに受講開始できます。</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Section 8</div>
+    <h2>申込CTA</h2>
+    <div class="lp-section">
+      <span class="lp-tag">CTA</span>
+      <div class="lp-title">ページ最下部の最終CTA</div>
+      <div class="purpose">ここまで読んだ人を確実にコンバージョンさせる。FVフォームへのスクロールリンク。</div>
+      <dl class="elements">
+        <dt>見出しコピー（確定）</dt>
+        <dd>
+          <div class="copy-example" style="font-size: var(--fs-md);">
+            直前期に、やるべきことだけ。
+            <span class="sub">全5回の直前対策講座＋確認テスト37問。完全無料でご利用いただけます。</span>
+          </div>
+        </dd>
+        <dt>ボタン</dt>
+        <dd>「無料で受講する」→ FVのフォームへスクロール</dd>
+        <dt>マイクロコピー</dt>
+        <dd>登録は1分で完了・個人でも法人でもOK</dd>
+      </dl>
+    </div>
+  </section>
+
+  <hr>
+
+  <section class="section">
+    <h2>制作にあたっての補足</h2>
+
+    <h3>デザインの方向性</h3>
+    <ul>
+      <li>社内FBの結果、コピートーンは「ちょうどいい」と評価。派手すぎない落ち着いたデザインがこのLPに合う</li>
+      <li>メインビジュアルの視覚的インパクトは強化したい（ビーワークスさんの領域）</li>
+      <li>Faciloサービスサイトとの統一感は意識しつつ、「プロダクトLP」ではなく「教育コンテンツ」のトーンで</li>
+    </ul>
+
+    <h3>素材の準備状況</h3>
+    <ul>
+      <li><strong>中村先生の写真</strong> ── 未取得。収録時の写真が共有ドライブにあるはず。プロフィール用写真が別途あれば理想</li>
+      <li><strong>先生からのコメント</strong> ── 依頼可能。テスト確認と合わせて依頼</li>
+      <li><strong>Faciloロゴ</strong> ── 手元にあり</li>
+      <li><strong>Schooロゴ</strong> ── 掲載可否をSchoo側に要確認</li>
+      <li><strong>OGP画像</strong> ── 未作成</li>
+    </ul>
+
+    <h3>導線設計</h3>
+    <ul>
+      <li><strong>PR記事 → LP</strong>：PRのリリース文中にLPへのリンク。PRの着地先がこのLP</li>
+      <li><strong>Faciloサービスサイト → LP</strong>：サービスサイトおよびコーポレートサイトからの導線あり</li>
+      <li><strong>メール（既存顧客案内）→ LP</strong>：CSからの案内メール内にLP URLを記載</li>
+      <li><strong>LP → FVフォーム → Swing招待</strong>：フォーム送信後、Facilo側でSwingにアカウント登録 → 招待メール送付</li>
+    </ul>
+
+    <h3>フォーム</h3>
+    <ul>
+      <li>HubSpotフォーム埋め込み（ポータル: 23163420）。formIdは後日確定</li>
+      <li>FVのヒーロー右側に常時表示。ページ下部CTAはFVフォームへのスクロールリンク</li>
+      <li>入力項目：お名前（必須）・メールアドレス（必須）・会社名（必須）・利用規約同意（必須）</li>
+    </ul>
+
+    <h3>計測</h3>
+    <ul>
+      <li>GA4イベント計測（フォーム送信完了 = CV）</li>
+      <li>UTMパラメータ設計（PR / メール / サイト内の流入経路別）</li>
+      <li>HubSpot側でもリード計測可能</li>
+    </ul>
+
+    <h3>スケジュール（7/9キックオフ確認済み）</h3>
+    <ul>
+      <li><strong>7/14〜</strong>：ワイヤーフレーム（ビーワークス）</li>
+      <li><strong>7月下旬</strong>：デザインカンプ</li>
+      <li><strong>8/10〜14</strong>：Facilo社 夏季休暇（全社一斉）</li>
+      <li><strong>8月中旬〜</strong>：実装・テスト</li>
+      <li><strong>8/31</strong>：LP公開目標</li>
+    </ul>
+  </section>
+
+  <div class="doc-footer">
+    Facilo Marketing ── 宅建講座PRJ LP構成案 v2（2026-07-11）
+  </div>
+
+</div>
+
+</body>
+</html>
