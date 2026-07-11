@@ -470,6 +470,70 @@ ul, ol { list-style: none; }
   color: var(--color-accent-dark);
 }
 
+/* --- Benefits --- */
+.benefits__list {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 760px;
+}
+
+.benefit-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 28px 32px;
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+.benefit-item__num {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.benefit-item__title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-text-strong);
+  margin-bottom: 6px;
+  line-height: 1.45;
+}
+
+.benefit-item__desc {
+  font-size: 14px;
+  color: var(--color-text-sub);
+  line-height: 1.75;
+}
+
+/* --- CEO Message (結び) --- */
+.ceo-message {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ceo-message__lead {
+  font-size: 15px;
+  color: var(--color-text-sub);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  margin-inline: auto;
+  max-width: 640px;
+}
+
 /* --- Features --- */
 .features__grid {
   display: grid;
@@ -937,6 +1001,9 @@ ul, ol { list-style: none; }
     max-width: 200px;
     margin-inline: auto;
   }
+  .benefit-item {
+    padding: 20px 24px;
+  }
   .ceo-letter__body {
     padding: 24px;
   }
@@ -991,6 +1058,16 @@ ul, ol { list-style: none; }
   .header__cta {
     padding: 8px 16px;
     font-size: 13px;
+  }
+  .benefit-item {
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+    padding: 18px;
+  }
+  .benefit-item__num {
+    width: 40px;
+    height: 40px;
+    font-size: 17px;
   }
   .curriculum-item {
     grid-template-columns: 44px 1fr;
